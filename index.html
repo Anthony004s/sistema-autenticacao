@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sistema de autenticação com Supabase">
+  <title>Sistema de Autenticação</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <section id="login-section" class="login-card">
+      <div class="logo">SA</div>
+      <h1>Bem-vindo</h1>
+      <p class="subtitle">Entre para acessar o sistema</p>
+
+      <form id="login-form">
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="seu@email.com"
+          autocomplete="username"
+          required
+        >
+
+        <label for="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="Digite sua senha"
+          autocomplete="current-password"
+          required
+        >
+
+        <button type="submit" id="login-button">
+          Entrar
+        </button>
+
+        <p id="login-message" class="message" role="status"
+           aria-live="polite"></p>
+      </form>
+
+      <p class="footer-text">Sistema protegido por Supabase Auth</p>
+    </section>
+
+    <section id="dashboard-section" class="dashboard" hidden>
+      <header class="dashboard-header">
+        <div>
+          <span class="status"><span class="status-dot"></span>
+            Autenticado</span>
+          <h1>Área restrita</h1>
+          <p>Você entrou no sistema com sucesso.</p>
+        </div>
+
+        <button id="logout-button" class="logout-button" type="button">
+          Sair
+        </button>
+      </header>
+
+      <div class="welcome-card">
+        <div class="welcome-icon">✓</div>
+        <h2>Bem-vindo ao painel!</h2>
+        <p>Esta área é exibida somente quando existe uma sessão
+           autenticada válida.</p>
+        <div class="user-info">
+          <span>Usuário conectado</span>
+          <strong id="user-email"></strong>
+        </div>
+      </div>
+
+      <p id="dashboard-message" class="message" role="status"
+         aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>
